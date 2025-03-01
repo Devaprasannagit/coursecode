@@ -15,5 +15,5 @@ jobs:
     - name: view Version
       run: sw_vers
     - name: Run a one-line script on mac
-      run: echo Hello, world! on mac
+      run: echo "Hello, world! on mac"
     
