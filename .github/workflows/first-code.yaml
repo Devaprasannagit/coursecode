@@ -1,5 +1,5 @@
 name: sample workflow
-on: [push]
+on: [ pull_request]
 defaults:
   run:
     shell: bash
@@ -23,4 +23,6 @@ jobs:
         ls -al
         echo $GITHUB_REF
         echo $GITHUB_REPOSITORY
+        echo $GITHUB_WORKSPACE
+        echo " This is a parallel job"
      
