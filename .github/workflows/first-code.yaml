@@ -11,9 +11,8 @@ jobs:
     runs-on: macos-latest
     needs: build
     steps:
-
-    - name: view Version
-      run: sw_vers
-    - name: Run a one-line script on mac
-      run: echo "Hello, world! on mac"
+     - name: view Version
+       run: sw_vers
+     - name: Run a one-line script on mac
+       run: echo "Hello, world! on mac"
     
