@@ -10,7 +10,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Comment on pull request
-        uses: actions/github-script@v6
+        uses: actions/github-script@v
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
