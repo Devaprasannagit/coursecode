@@ -1,0 +1,27 @@
+name: Repository_Event
+on:
+    push:
+        branches:
+            - main
+            - dev
+    pull_request:
+        branches:
+            - main
+            - dev
+    issues:
+        types: [opened, edited, deleted]
+
+jobs:
+    example_job:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v2
+            - name: Run a one-line script
+              run: |
+                    echo $GITHUB_SHA
+                    ls -al
+                    echo $GITHUB_REF
+                    echo $GITHUB_REPOSITORY
+                    echo $GITHUB_WORKSPACE
+                    echo " This is a parallel job"
