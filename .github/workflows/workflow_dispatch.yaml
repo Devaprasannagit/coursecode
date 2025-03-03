@@ -1,9 +1,35 @@
 name: workflow_dispatch
 on:
   workflow_dispatch:
+    inputs:
+        string:
+            description: "Enter a string"
+            type: string
+            required: true
+            default: "Hello World"
+        number:
+            description: "Enter a number"
+            type: number
+            required: true
+            default: 10
+        boolean:    
+            description: "Enter a boolean"
+            type: boolean
+            required: true
+            default: true
+        environment:
+            description: "Enter an environment"
+            type: environment
+            required: true
+            default: production
 jobs:
     manual:
         runs-on: ubuntu-latest
         steps:
             - name: manula step
-              run: echo "This is a manual step"
+              run: |
+                echo "This is a manual step"
+                echo "String: ${{ github.event.inputs.string }}"
+                echo "Number: ${{ github.event.inputs.number }}"
+                echo "Boolean: ${{ github.event.inputs.boolean }}"
+                echo "Environment: ${{ github.event.inputs.environment }}"
