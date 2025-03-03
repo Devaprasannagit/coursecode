@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 jobs:
     manual:
-        runs-on: ubuntu
+        runs-on: ubuntu-latest
         steps:
             - name: manula step
               run: echo "This is a manual step"
