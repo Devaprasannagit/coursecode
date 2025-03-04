@@ -2,7 +2,7 @@ name: Environment Variable Example
 on: [push]
 jobs:
     log-vars:
-      environment: production
+      environment: staging
       runs-on: ${{vars.RUNNERS}}
       env:
           BOOLEAN_SECRET: ${{ secrets.BOOLEAN_SECRET }}
