@@ -1,0 +1,21 @@
+name: status check
+on: [push,pull_request,issues]
+jobs:
+    job-1:
+        runs-on: ubuntu-latest
+        steps:
+        - name: step-1
+          run: sleep 20
+        - name: runs-on-failure
+          if: failure()
+          run: sleep 20
+    status_check_2:
+        runs-on: ubuntu-latest
+        needs: job-1
+        steps:
+        - name: status check 2
+          if: failure()
+          run: echo "This is a failure"
+        - name: status check 3
+          if: success()
+          run: echo "This is a success"
