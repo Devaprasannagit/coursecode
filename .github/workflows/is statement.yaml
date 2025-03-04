@@ -9,6 +9,13 @@ jobs:
         if: contains(github.event.pull_request.labels.*.name, 'bug')
         run: |
           echo "This is a bug"
+  if_statement_2:
+    runs-on: ubuntu-latest
+    steps:
+        - name: if statement 2
+          if: ${{ github.event.issue.labels.*.name != 'bug' }} 
+          run: |
+                echo "This is not a bug" 
   push_statement:
     runs-on: ubuntu-latest
     if: contains(fromJson('["push"]'),github.event_name)
