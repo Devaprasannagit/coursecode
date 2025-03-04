@@ -7,13 +7,12 @@ jobs:
     steps:
       - name: if statement
         run: |
-          echo "This is a bug"
+          echo ${{ join(github.event.issue.labels.*.name, ',')}}
   if_statement_2:
-    if: contains(fromJson('["issues", "pull_request"]'),github.event_name)
+    if: ${{ github.event.issue.labels.*.name != 'bug' }} 
     runs-on: ubuntu-latest
     steps:
         - name: if statement 2
-          if: ${{ github.event.issue.labels.*.name != 'bug' }} 
           run: |
                 echo "This is not a bug" 
   push_statement:
