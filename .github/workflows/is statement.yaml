@@ -1,0 +1,18 @@
+name: if _statement
+on: [push,pull_request]
+jobs:
+  if_statement:
+    runs-on: ubuntu-latest
+    if: contains(fromJson('["issues", "pull_request"]'),github.event_name)
+    steps:
+      - name: if statement
+        if: contains(github.event.pull_request.labels.*.name, 'bug')
+        run: |
+          echo "This is a bug"
+  push_statement:
+    runs-on: ubuntu-latest
+    if: contains(fromJson('["push"]'),github.event_name)
+    steps:
+       - name: push statement
+         run: |
+            echo "This is a push" 
